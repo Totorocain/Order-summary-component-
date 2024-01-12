@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Order summary card</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      :root {
+        --clr-primary-400: hsl(225, 100%, 97%);
+        --clr-primary-500: hsl(245, 75%, 52%);
+
+        --clr-neutral-900: hsl(225, 100%, 98%);
+        --clr-neutral-400: hsl(224, 23%, 55%);
+        --clr-neutral-100: hsl(223, 47%, 23%);
+
+        --ff-regular-500: "Red Hat Display", sans-serif;
+
+        --fw-regular: 500;
+        --fw-bold: 700;
+        --fw-bolder: 900;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      html,
+      body {
+        height: 700px;
+      }
+      body {
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.1;
+      }
+      
+
+      /* general style */
+      html {
+        
+
+        background: url(./images/pattern-background-mobile.svg) no-repeat center
+          center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+
+      body {
+        font-family: var(--ff-regular-500);
+        font-weight: var(--fw-regular);
+        font-size: 0.875rem;
+        color: var(--clr-neutral-900);
+
+        display: grid;        
+        place-content: center;
+
+        margin: 2rem;
+      }
+      .flex-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        background-color: var(--clr-primary-400);
+        border: none;
+
+        padding: 0.7rem;
+        border-radius: 10%;
+
+      }
+      .flex-annual {
+        display: flex;
+        flex-direction: column;
+      }
+      .annual-plan {
+        color: var(--clr-neutral-100);
+        font-weight: var(--fw-bolder);
+      }
+      .price-of-year {
+        color: var(--clr-neutral-400);
+        font-weight: var(--fw-regular);
+      }
+      .flex-button {
+        display: flex;
+        flex-direction: column;
+      }
+      .product {
+
+        
+
+        
+        --content-padding: 1.5rem;
+        --content-spacing: 1rem;
+
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        
+        background-color: var(--clr-neutral-900);
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        width: 375px;
+      }
+      .product__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        grid-row-start: 2;
+        grid-row-end: 4;
+
+        padding: var(--content-padding);
+        gap: var(--content-spacing);
+
+        color: var(--clr-primary-500);
+      }
+      .product__title {
+        display: flex;
+        justify-content: center;
+
+        font-size: 1.5rem;
+        font-family: var(--ff-regular-500);
+        color: var(--clr-neutral-100);
+      }
+      .paragraf {
+        text-align: center;
+        height: 100px;
+        font-weight: var(--fw-bold);
+        color: var(--clr-neutral-400);
+      }
+      .product__img {
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      .proceed-to-payment {
+        border: solid var(--clr-primary-500) 1px;
+      }
+      button {
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        gap: 0.75rem;
+        justify-content: center;
+        align-items: center;
+
+        border: 0;
+        border-radius: 0.5rem;
+        padding: .75em 1.5em;
+      }
+      .proceed-to-payment {
+        background-color: var(--clr-primary-500);
+        color: var(--clr-neutral-900);
+        font-weight: var(--fw-bold);
+      }
+      .cancel-order {
+        color: var(--clr-neutral-100);
+        font-weight: var(--fw-regular);
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="product">
+        <picture class="product__img">
+          <img src="./images/illustration-hero.svg" alt="illustration-hero" />
+        </picture>
+
+        <div class="product__content">
+          <h1 class="product__title">Order Summary</h1>
+
+          <p class="paragraf">
+            You can now listen to millions of songs, audiobooks, and podcasts on
+            any device anywhere you like!
+          </p>
+
+          <div class="flex-group">
+            <img class="music-logo" src="./images/icon-music.svg" alt="" />
+
+            <div class="flex-annual">
+              <p class="annual-plan">Annual Plan</p>
+              <p class="price-of-year">$59.99/year</p>
+            </div>
+            <a href="">Change</a>
+          </div>
+          <div class="flex-button">
+            <button class="proceed-to-payment">Proceed to Payment</button>
+
+            <button class="cancel-order">Cancel Order</button>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
